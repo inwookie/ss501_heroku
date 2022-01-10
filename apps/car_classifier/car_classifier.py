@@ -261,39 +261,39 @@ def app():
         conf_top, predicted_top = torch.max(output.data, 1)
         predicted_top = classes[predicted_top.item()]
         conf_top = math.trunc(conf_top.item() * 100)
-        conf, predicted = output.topk(5)
-        return predicted, conf, predicted_top, conf_top
+        # conf, predicted = output.topk(5)
+        return predicted_top, conf_top
 
-    def output_top_five(conf, predicted):
-        percents = []
-        car_models = []
-        for i in range(5):
-            percent = conf[0][i].item()
-            car_model = predicted[0][i].item()
-            # print(math.trunc(percent * 100),"%", classes[car_model])
+    # def output_top_five(conf, predicted):
+    #     percents = []
+    #     car_models = []
+    #     for i in range(5):
+    #         percent = conf[0][i].item()
+    #         car_model = predicted[0][i].item()
+    #         # print(math.trunc(percent * 100),"%", classes[car_model])
 
-            percents.append(math.trunc(percent * 100))
-            car_models.append(classes[car_model])
+    #         percents.append(math.trunc(percent * 100))
+    #         car_models.append(classes[car_model])
 
-            # print(car_models)
-            # print(percents)
+    #         # print(car_models)
+    #         # print(percents)
 
-        fig = plt.figure()
-        ax = fig.add_axes([0, 0, 1, 1])
-        ax.barh(car_models, percents)
-        ax.bar_label(ax.containers[0])
-        plt.gca().invert_yaxis()
-        plt.show()
+    #     fig = plt.figure()
+    #     ax = fig.add_axes([0, 0, 1, 1])
+    #     ax.barh(car_models, percents)
+    #     ax.bar_label(ax.containers[0])
+    #     plt.gca().invert_yaxis()
+    #     plt.show()
 
-        return fig
+    #     return fig
 
     if file is None:
         st.text("Please upload an image file")
     else:
         image = Image.open(file)
         st.image(image, use_column_width=True)
-        predicted, conf, predicted_top, conf_top = import_and_predict(
+        predicted_top, conf_top = import_and_predict(
             image, model)
         st.write("Prediction: ", predicted_top,
                  " Confidence ", conf_top, " percent.")
-        st.pyplot(output_top_five(conf, predicted))
+        # st.pyplot(output_top_five(conf, predicted))
