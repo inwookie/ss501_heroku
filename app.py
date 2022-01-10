@@ -18,15 +18,15 @@ st.markdown("""
 # Add all your application here
 app.add_app("Home", main_page.app)
 # app.add_app("🚗  Car Classifier", car_classifier.app)
-app.add_app("______About Car Classification", car_classifier_about.app)
-app.add_app("🚓 Number Plate Detection", ocr_v2.app)
-app.add_app("______About Number Plate Detection", ocr_about.app)
 app.add_app("🚐  Scratch Detection", scratch.app)
+app.add_app("🚓 Number Plate Detection", ocr_v2.app)
+app.add_app("______About Car Classification", car_classifier_about.app)
+app.add_app("______About Number Plate Detection", ocr_about.app)
 app.add_app("______About Scratch Detection", scratch_about.app)
 # app.add_app("🚙 Used Car Price Prediction", used_car_prediction.app)
 app.add_app("______About Used Car Price Prediction",
             used_car_prediction_about.app)
-app.add_app("🚐  About Dent Detection", dent_about.app)
+app.add_app("______About Dent Detection", dent_about.app)
 app.add_app("👩🏻‍💻🧑🏻‍💻 About Us", about_us.app)
 # The main app
 app.run()
