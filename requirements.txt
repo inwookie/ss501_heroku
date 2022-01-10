@@ -7,5 +7,4 @@ torch==1.7.1+cpu
 torchvision==0.8.2+cpu
 streamlit
 matplotlib==3.5.1
-scikit-learn
 segmentation-models-pytorch
